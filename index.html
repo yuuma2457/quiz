@@ -8,17 +8,18 @@
             var questions = getObjects();
             var correct = 0;
 
-            for(var i = 0; i < questions.length; i++) {
-                var question = questions[i];
-                var input = prompt(question.sentence);
-                if(question.check(input)) {
-                    alert("正解です。");
-                    correct++;
+            questions.forEach(
+                function(question) {
+                    var input = prompt(question.sentence);
+                    if(question.check(input)) {
+                        alert("正解です。");
+                        correct++;
+                    }
+                    else {
+                        alert("間違いです。");
+                    }
                 }
-                else {
-                    alert("間違いです。");
-                }
-            }
+            );
             document.write(correct + "問正解です。");
         </script>
     </head>
